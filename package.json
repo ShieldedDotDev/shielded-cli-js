@@ -12,6 +12,7 @@
     "url": "https://donatstudios.com"
   },
   "license": "MIT",
+  "homepage": "https://github.com/ShieldedDotDev/shielded-cli-js",
   "devDependencies": {
     "@types/node": "^18.11.7",
     "@typescript-eslint/eslint-plugin": "^5.41.0",
