@@ -1,10 +1,12 @@
 {
-    "name": "shielded-sdk-js",
+    "name": "shielded-cli",
     "version": "0.1.0",
     "description": "Shielded.dev JS SDK",
-    "main": "dist/index.js",
+    "main": "dist/sdk.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "tsc && chmod +x dist/bin.js",
+        "lint": "npx eslint ."
     },
     "author": {
         "name": "Jesse G. Donat",
@@ -12,6 +14,7 @@
         "url": "https://donatstudios.com"
     },
     "license": "MIT",
+    "homepage": "https://github.com/ShieldedDotDev/shielded-cli-js",
     "devDependencies": {
         "@types/node": "^18.11.7",
         "@typescript-eslint/eslint-plugin": "^5.41.0",

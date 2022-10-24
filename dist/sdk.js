@@ -48,7 +48,7 @@ class ShieldedAPI {
             if (options.color) {
                 params.append('color', options.color);
             }
-            const result = yield node_fetch_1.default(options.endpoint, {
+            const result = yield (0, node_fetch_1.default)(options.endpoint, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
