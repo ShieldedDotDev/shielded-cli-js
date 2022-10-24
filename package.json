@@ -1,0 +1,30 @@
+{
+  "name": "shielded-cli",
+  "version": "0.1.0",
+  "description": "Shielded.dev JS SDK",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "Jesse G. Donat",
+    "email": "donatj@gmail.com",
+    "url": "https://donatstudios.com"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^18.11.7",
+    "@typescript-eslint/eslint-plugin": "^5.41.0",
+    "@typescript-eslint/parser": "^5.41.0",
+    "@types/node-fetch": "^2.6.2",
+    "eslint": "^8.26.0",
+    "typescript": "^4.8.4"
+  },
+  "bin": {
+    "shielded": "./dist/bin.js"
+  },
+  "dependencies": {
+    "commander": "^9.4.1",
+    "node-fetch": "^2.6.7"
+  }
+}
