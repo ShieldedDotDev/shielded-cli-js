@@ -16,7 +16,7 @@ const sdk_1 = require("./sdk");
 const program = new commander_1.Command();
 program
     .name(Object.keys(pkg_json_1.bin)[0])
-    .description('CLI to some JavaScript string utilities')
+    .description('CLI helper for Shielded.dev API')
     .option('-e, --endpoint <url>', 'API endpoint', 'https://api.shielded.dev')
     .option('-c, --color <color>', 'Badge color')
     .option('-T, --title <title>', 'Badge title')
@@ -28,6 +28,7 @@ if (!options.token && process.env.SHIELDED_TOKEN) {
     options.token = process.env.SHIELDED_TOKEN;
 }
 if (!options.token) {
+    process.stderr.write('Missing token. Please set SHIELDED_TOKEN environment variable or use --token option.');
     process.stderr.write(program.helpInformation());
     process.exit(1);
 }
