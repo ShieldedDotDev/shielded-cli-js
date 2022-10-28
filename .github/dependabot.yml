@@ -6,3 +6,7 @@ updates:
     interval: monthly
     time: "11:00"
   open-pull-requests-limit: 3
+  ignore:
+    # ignore all GitHub linguist patch updates
+    - dependency-name: "node-fetch"
+      update-types: ["version-update:semver-major"]
