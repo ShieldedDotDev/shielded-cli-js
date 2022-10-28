@@ -10,6 +10,9 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    env:
+      SHIELDED_TOKEN: ${{ secrets.SHIELDED_TOKEN }}
+
     strategy:
       matrix:
         node-version: [18.x]
