@@ -14,7 +14,7 @@ npm install -g shielded-cli
 
 ```bash
 # You can also use the --token argument
-export SHIELDED_TOKEN="<Your token from shielded.dev"
+export SHIELDED_TOKEN="<Your token from shielded.dev>"
 
 shielded --title "Last Build" --text "$(date)" --color "00AA33"
 ```
