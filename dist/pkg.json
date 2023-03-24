@@ -17,11 +17,11 @@
     "homepage": "https://github.com/ShieldedDotDev/shielded-cli-js",
     "devDependencies": {
         "@types/node": "^18.11.7",
+        "@types/node-fetch": "^2.6.2",
         "@typescript-eslint/eslint-plugin": "^5.41.0",
         "@typescript-eslint/parser": "^5.41.0",
-        "@types/node-fetch": "^2.6.2",
         "eslint": "^8.26.0",
-        "typescript": "^4.8.4"
+        "typescript": "^4.9.5"
     },
     "bin": {
         "shielded": "./dist/bin.js"
