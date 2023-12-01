@@ -21,7 +21,7 @@
     "@typescript-eslint/eslint-plugin": "^5.41.0",
     "@typescript-eslint/parser": "^5.41.0",
     "eslint": "^8.26.0",
-    "typescript": "^4.9.5"
+    "typescript": "^5.3.2"
   },
   "bin": {
     "shielded": "./dist/bin.js"
