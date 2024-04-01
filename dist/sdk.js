@@ -32,8 +32,8 @@ class ShieldedAPI {
         };
         this.options = Object.assign(Object.assign({}, this.options), options);
     }
-    updateShield(options = {}) {
-        return __awaiter(this, void 0, void 0, function* () {
+    updateShield() {
+        return __awaiter(this, arguments, void 0, function* (options = {}) {
             options = Object.assign(Object.assign({}, this.options), options);
             if (!isShieldOptions(options)) {
                 throw new Error("Calling the API requires endpoint and token options.");
