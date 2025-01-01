@@ -27,7 +27,7 @@
     "shielded": "./dist/bin.js"
   },
   "dependencies": {
-    "commander": "^12.0.0",
+    "commander": "^13.0.0",
     "node-fetch": "^2.6.13"
   }
 }
