@@ -4,8 +4,8 @@ updates:
   directory: "/"
   schedule:
     interval: monthly
-    time: "11:00"
   open-pull-requests-limit: 6
+  versioning-strategy: "increase"
   ignore:
     # ignore all GitHub linguist patch updates
     - dependency-name: "node-fetch"
@@ -14,4 +14,3 @@ updates:
   directory: "/"
   schedule:
     interval: monthly
-    time: "11:00"
