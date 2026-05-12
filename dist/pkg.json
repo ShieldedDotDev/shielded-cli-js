@@ -16,18 +16,18 @@
     "license": "MIT",
     "homepage": "https://github.com/ShieldedDotDev/shielded-cli-js",
     "devDependencies": {
-        "@types/node": "^20.8.0",
+        "@types/node": "^24.10.1",
         "@types/node-fetch": "^2.6.2",
         "@typescript-eslint/eslint-plugin": "^5.41.0",
         "@typescript-eslint/parser": "^5.41.0",
         "eslint": "^8.26.0",
-        "typescript": "^5.4.3"
+        "typescript": "^5.9.3"
     },
     "bin": {
         "shielded": "./dist/bin.js"
     },
     "dependencies": {
-        "commander": "^9.4.1",
-        "node-fetch": "^2.6.7"
+        "commander": "^12.0.0",
+        "node-fetch": "^2.6.13"
     }
 }
