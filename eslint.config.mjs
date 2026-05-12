@@ -1,9 +1,13 @@
-const js = require('@eslint/js');
-const tsEslintParser = require('@typescript-eslint/parser');
-const tsEslintPlugin = require('@typescript-eslint/eslint-plugin');
-const globals = require('globals');
+import js from '@eslint/js';
+import tsEslintParser from '@typescript-eslint/parser';
+import tsEslintPlugin from '@typescript-eslint/eslint-plugin';
+import globals from 'globals';
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-module.exports = [
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+export default [
   {
     ignores: ['node_modules/**', 'dist/**'],
   },
