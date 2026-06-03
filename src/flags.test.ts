@@ -4,6 +4,7 @@ import path from 'node:path';
 import test from 'node:test';
 
 const binPath = path.resolve(__dirname, 'bin.js');
+const CLI_TEST_TIMEOUT = 5000;
 const parseErrorPattern = /error:\s+(unknown option|too many arguments|missing required argument)/i;
 
 const runCli = (args: string[]) => spawnSync(process.execPath, [binPath, ...args], {
@@ -12,7 +13,7 @@ env: {
 ...process.env,
 SHIELDED_TOKEN: 'test-token'
 },
-timeout: 5000
+timeout: CLI_TEST_TIMEOUT
 });
 
 void test('help output includes all defined flags', () => {
