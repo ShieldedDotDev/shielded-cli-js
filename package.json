@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc && chmod +x dist/bin.js",
-    "lint": "npx eslint ."
+    "lint": "npx eslint .",
+    "test:flags": "npm run build && node --test dist/flags.test.js"
   },
   "author": {
     "name": "Jesse G. Donat",
