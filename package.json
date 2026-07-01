@@ -4,9 +4,10 @@
   "description": "Shielded.dev JS SDK",
   "main": "dist/sdk.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run test:flags",
     "build": "tsc && chmod +x dist/bin.js",
-    "lint": "npx eslint ."
+    "lint": "npx eslint .",
+    "test:flags": "npm run build && node --test dist/flags.test.js"
   },
   "author": {
     "name": "Jesse G. Donat",
@@ -27,7 +28,7 @@
     "shielded": "./dist/bin.js"
   },
   "dependencies": {
-    "commander": "^12.0.0",
+    "commander": "^15.0.0",
     "node-fetch": "^2.6.13"
   }
 }
