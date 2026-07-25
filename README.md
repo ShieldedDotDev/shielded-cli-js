@@ -18,3 +18,19 @@ export SHIELDED_TOKEN="<Your token from shielded.dev>"
 
 shielded --title "Last Build" --text "$(date)" --color "00AA33"
 ```
+
+### User API tokens
+
+The CLI forwards `--id` and `--shield-key` directly to the API as `id` and
+`shield_key`. It does not infer behavior from the token type. The current user
+API requires an `id` to select or create a shield, while `--shield-key` assigns
+or changes a shield key.
+
+```bash
+export SHIELDED_TOKEN="sdu_<your user API token>"
+
+shielded --id "production-status" --title "Last Build" --text "$(date)" --color "00AA33"
+
+# Optionally assign or change the shield key.
+shielded --id "production-status" --shield-key "production-status-v2"
+```

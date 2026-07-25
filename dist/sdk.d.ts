@@ -5,9 +5,12 @@ export interface ShieldOptions {
     title?: string;
     text?: string;
     color?: string;
+    id?: string;
+    shieldKey?: string;
 }
 export interface ShieldResponse {
     ShieldURL: string;
+    ShieldKey?: string;
 }
 export declare class StatusError extends Error {
     status: number;

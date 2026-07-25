@@ -21,6 +21,8 @@ program
     .option('-c, --color <color>', 'Badge color')
     .option('-T, --title <title>', 'Badge title')
     .option('-x, --text <text>', 'Badge text')
+    .option('-i, --id <id>', 'Shield ID for selecting a shield')
+    .option('-k, --shield-key <key>', 'Shield key')
     .version(pkg_json_1.version);
 program.parse();
 const options = program.opts();
@@ -44,6 +46,8 @@ if (!options.token) {
     try {
         shield = yield s.updateShield({
             color: options.color,
+            id: options.id,
+            shieldKey: options.shieldKey,
             title: options.title,
             text: options.text,
         });
