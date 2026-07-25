@@ -6,7 +6,6 @@ export interface ShieldOptions {
 	title?: string;
 	text?: string;
 	color?: string;
-	id?: string;
 	shieldKey?: string;
 }
 
@@ -57,10 +56,6 @@ export class ShieldedAPI {
 
 		if (options.color) {
 			params.append('color', options.color);
-		}
-
-		if (options.id) {
-			params.append('id', options.id);
 		}
 
 		if (options.shieldKey) {

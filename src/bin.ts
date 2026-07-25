@@ -12,7 +12,6 @@ program
 	.option('-c, --color <color>', 'Badge color')
 	.option('-T, --title <title>', 'Badge title')
 	.option('-x, --text <text>', 'Badge text')
-	.option('-i, --id <id>', 'Shield ID for selecting a shield')
 	.option('-k, --shield-key <key>', 'Shield key')
 	.version(version);
 
@@ -22,7 +21,6 @@ type Options = {
 	endpoint: string | undefined;
 	token: string;
 	color: string | undefined;
-	id: string | undefined;
 	title: string | undefined;
 	text: string | undefined;
 	shieldKey: string | undefined;
@@ -54,7 +52,6 @@ if (!options.token) {
 	try {
 		shield = await s.updateShield({
 			color: options.color,
-			id: options.id,
 			shieldKey: options.shieldKey,
 			title: options.title,
 			text: options.text,

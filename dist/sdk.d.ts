@@ -5,7 +5,6 @@ export interface ShieldOptions {
     title?: string;
     text?: string;
     color?: string;
-    id?: string;
     shieldKey?: string;
 }
 export interface ShieldResponse {
