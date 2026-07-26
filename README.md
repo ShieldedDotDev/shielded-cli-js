@@ -21,14 +21,14 @@ shielded --title "Last Build" --text "$(date)" --color "00AA33"
 
 ### User API tokens
 
-The CLI forwards `--shield-key` directly to the API as `shield_key`. It does
-not infer behavior from the token type. The API uses a supplied shield key to
-select or create a shield for a user-level token.
+The CLI forwards `--shield-key` directly to the API as `shield_key`. When it
+is present, the CLI reads `SHIELDED_USER_TOKEN` first, then falls back to
+`SHIELDED_TOKEN`. Without `--shield-key`, it reads only `SHIELDED_TOKEN`.
 
 ```bash
-export SHIELDED_TOKEN="sdu_<your user API token>"
+export SHIELDED_USER_TOKEN="sdu_<your user API token>"
 
 shielded --shield-key "production-status" --title "Last Build" --text "$(date)" --color "00AA33"
 
-# Per-shield tokens continue to omit --shield-key.
+# A user-token invocation falls back to SHIELDED_TOKEN when SHIELDED_USER_TOKEN is unset.
 ```
