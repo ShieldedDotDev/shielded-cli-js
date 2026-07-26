@@ -6,10 +6,12 @@ export interface ShieldOptions {
 	title?: string;
 	text?: string;
 	color?: string;
+	shieldKey?: string;
 }
 
 export interface ShieldResponse {
 	ShieldURL: string;
+	ShieldKey?: string;
 }
 
 export class StatusError extends Error {
@@ -54,6 +56,10 @@ export class ShieldedAPI {
 
 		if (options.color) {
 			params.append('color', options.color);
+		}
+
+		if (options.shieldKey) {
+			params.append('shield_key', options.shieldKey);
 		}
 
 		const result = await fetch(options.endpoint, {

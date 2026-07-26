@@ -12,26 +12,39 @@ program
 	.option('-c, --color <color>', 'Badge color')
 	.option('-T, --title <title>', 'Badge title')
 	.option('-x, --text <text>', 'Badge text')
+	.option('-k, --key <key>', 'Shield key')
+	.option('-t, --token <token>', 'API token')
 	.version(version);
 
 program.parse();
 
 type Options = {
 	endpoint: string | undefined;
-	token: string;
+	token: string | undefined;
 	color: string | undefined;
 	title: string | undefined;
 	text: string | undefined;
+	key: string | undefined;
 };
 
 const options = program.opts<Options>();
 
-if (!options.token && process.env.SHIELDED_TOKEN) {
-	options.token = process.env.SHIELDED_TOKEN;
+if (!options.token) {
+	const tokenEnvironmentVariables = options.key
+		? ['SHIELDED_USER_TOKEN', 'SHIELDED_TOKEN']
+		: ['SHIELDED_TOKEN'];
+
+	for (const variable of tokenEnvironmentVariables) {
+		if (process.env[variable]) {
+			options.token = process.env[variable];
+			break;
+		}
+	}
 }
 
 if (!options.token) {
-	process.stderr.write('Missing token. Please set SHIELDED_TOKEN environment variable or use --token option.');
+	const tokenVariables = options.key ? 'SHIELDED_USER_TOKEN or SHIELDED_TOKEN' : 'SHIELDED_TOKEN';
+	process.stderr.write(`Missing token. Please set the ${tokenVariables} environment variable or use --token option.\n\n`);
 	process.stderr.write(program.helpInformation());
 	process.exit(1);
 }
@@ -50,6 +63,7 @@ if (!options.token) {
 	try {
 		shield = await s.updateShield({
 			color: options.color,
+			shieldKey: options.key,
 			title: options.title,
 			text: options.text,
 		});

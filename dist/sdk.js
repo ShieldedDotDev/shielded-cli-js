@@ -48,6 +48,9 @@ class ShieldedAPI {
             if (options.color) {
                 params.append('color', options.color);
             }
+            if (options.shieldKey) {
+                params.append('shield_key', options.shieldKey);
+            }
             const result = yield (0, node_fetch_1.default)(options.endpoint, {
                 method: 'POST',
                 headers: {
