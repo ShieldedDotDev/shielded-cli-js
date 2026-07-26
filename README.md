@@ -13,22 +13,25 @@ npm install -g shielded-cli
 ## Usage
 
 ```bash
-# You can also use the --token argument
+# Update one shield with its own API token.
 export SHIELDED_TOKEN="<Your token from shielded.dev>"
 
 shielded --title "Last Build" --text "$(date)" --color "00AA33"
 ```
 
-### User API tokens
+### Update shields by key
 
-The CLI forwards `--shield-key` directly to the API as `shield_key`. When it
-is present, the CLI reads `SHIELDED_USER_TOKEN` first, then falls back to
-`SHIELDED_TOKEN`. Without `--shield-key`, it reads only `SHIELDED_TOKEN`.
+A user API token can update or create any of your shields. Give the shield a
+stable key with `--shield-key`, then keep the user token in
+`SHIELDED_USER_TOKEN`:
 
 ```bash
 export SHIELDED_USER_TOKEN="sdu_<your user API token>"
 
 shielded --shield-key "production-status" --title "Last Build" --text "$(date)" --color "00AA33"
-
-# A user-token invocation falls back to SHIELDED_TOKEN when SHIELDED_USER_TOKEN is unset.
 ```
+
+When you use `--shield-key`, the CLI prefers `SHIELDED_USER_TOKEN` and falls
+back to `SHIELDED_TOKEN` if it is unset. Without `--shield-key`, it uses only
+`SHIELDED_TOKEN`, so your existing per-shield-token commands keep working as
+before.
