@@ -44,7 +44,7 @@ if (!options.token) {
 
 if (!options.token) {
 	const tokenVariables = options.key ? 'SHIELDED_USER_TOKEN or SHIELDED_TOKEN' : 'SHIELDED_TOKEN';
-	process.stderr.write(`Missing token. Please set the ${tokenVariables} environment variable or use --token option.`);
+	process.stderr.write(`Missing token. Please set the ${tokenVariables} environment variable or use --token option.\n\n`);
 	process.stderr.write(program.helpInformation());
 	process.exit(1);
 }
