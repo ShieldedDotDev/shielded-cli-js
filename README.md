@@ -19,6 +19,13 @@ export SHIELDED_TOKEN="<Your token from shielded.dev>"
 shielded --title "Last Build" --text "$(date)" --color "00AA33"
 ```
 
+For a one-off command, pass the token directly with `--token`. An explicit
+`--token` always wins over environment variables.
+
+```bash
+shielded --token "<Your token from shielded.dev>" --title "Last Build" --text "$(date)" --color "00AA33"
+```
+
 ### Update shields by key
 
 A user API token can update or create any of your shields. Give the shield a
@@ -34,4 +41,4 @@ shielded --shield-key "production-status" --title "Last Build" --text "$(date)" 
 When you use `--shield-key`, the CLI prefers `SHIELDED_USER_TOKEN` and falls
 back to `SHIELDED_TOKEN` if it is unset. Without `--shield-key`, it uses only
 `SHIELDED_TOKEN`, so your existing per-shield-token commands keep working as
-before.
+before. An explicit `--token` takes precedence in either workflow.

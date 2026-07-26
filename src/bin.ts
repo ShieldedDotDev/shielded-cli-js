@@ -13,13 +13,14 @@ program
 	.option('-T, --title <title>', 'Badge title')
 	.option('-x, --text <text>', 'Badge text')
 	.option('-k, --shield-key <key>', 'Shield key')
+	.option('-t, --token <token>', 'API token')
 	.version(version);
 
 program.parse();
 
 type Options = {
 	endpoint: string | undefined;
-	token: string;
+	token: string | undefined;
 	color: string | undefined;
 	title: string | undefined;
 	text: string | undefined;

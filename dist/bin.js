@@ -22,6 +22,7 @@ program
     .option('-T, --title <title>', 'Badge title')
     .option('-x, --text <text>', 'Badge text')
     .option('-k, --shield-key <key>', 'Shield key')
+    .option('-t, --token <token>', 'API token')
     .version(pkg_json_1.version);
 program.parse();
 const options = program.opts();
