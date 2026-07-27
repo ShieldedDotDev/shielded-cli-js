@@ -25,6 +25,14 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
     - run: npm run build
+    - name: Check compiled output is clean
+      run: |
+        if [ -n "$(git status --porcelain --untracked-files=all -- ./dist)" ]; then
+          git status --short -- ./dist
+          git diff -- ./dist
+          echo "::error::./dist has uncommitted changes after build"
+          exit 1
+        fi
     - run: npm run lint
     # - run: npm test
     - run: npm install -g .
