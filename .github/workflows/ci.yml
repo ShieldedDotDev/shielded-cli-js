@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      SHIELDED_TOKEN: ${{ secrets.SHIELDED_TOKEN }}
+      SHIELDED_USER_TOKEN: ${{ secrets.SHIELDED_USER_TOKEN }}
 
     strategy:
       matrix:
@@ -36,4 +36,4 @@ jobs:
     - run: npm run lint
     # - run: npm test
     - run: npm install -g .
-    - run: shielded --text "$(date)"
+    - run: shielded --key shieldeddotdev-last-update-cli --text "$(date)"
