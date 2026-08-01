@@ -22,7 +22,7 @@
     "@types/node-fetch": "^2.6.2",
     "oxfmt": "^0.75.0",
     "oxlint": "^1.90.0",
-    "typescript": "^5.9.3"
+    "typescript": "^7.0.2"
   },
   "bin": {
     "shielded": "dist/bin.js"
