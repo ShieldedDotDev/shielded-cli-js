@@ -23,12 +23,13 @@ class StatusError extends Error {
 }
 exports.StatusError = StatusError;
 function isShieldOptions(options) {
-    return (typeof options.endpoint === "string") && (typeof options.token === "string");
+    return (typeof options.endpoint === "string" &&
+        typeof options.token === "string");
 }
 class ShieldedAPI {
     constructor(options = {}) {
         this.options = {
-            endpoint: 'https://api.shielded.dev',
+            endpoint: "https://api.shielded.dev",
         };
         this.options = Object.assign(Object.assign({}, this.options), options);
     }
@@ -40,29 +41,29 @@ class ShieldedAPI {
             }
             const params = new URLSearchParams();
             if (options.title) {
-                params.append('title', options.title);
+                params.append("title", options.title);
             }
             if (options.text) {
-                params.append('text', options.text);
+                params.append("text", options.text);
             }
             if (options.color) {
-                params.append('color', options.color);
+                params.append("color", options.color);
             }
             if (options.shieldKey) {
-                params.append('shield_key', options.shieldKey);
+                params.append("shield_key", options.shieldKey);
             }
             const result = yield (0, node_fetch_1.default)(options.endpoint, {
-                method: 'POST',
+                method: "POST",
                 headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    'Authorization': `token ${options.token}`,
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    Authorization: `token ${options.token}`,
                 },
-                body: params
+                body: params,
             });
             if (!result.ok) {
                 throw new StatusError(`API returned an error: ${result.status} ${result.statusText}: ${yield result.text()}`, result.status, result);
             }
-            return yield result.json();
+            return (yield result.json());
         });
     }
 }

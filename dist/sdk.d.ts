@@ -1,4 +1,4 @@
-import { Response } from 'node-fetch';
+import { Response } from "node-fetch";
 export interface ShieldOptions {
     endpoint: string;
     token: string;

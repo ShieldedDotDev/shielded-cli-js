@@ -1,19 +1,19 @@
 #!/usr/bin/env node
 
-import { Command } from 'commander';
-import { version, bin } from './pkg.json';
-import { ShieldedAPI, ShieldOptions, StatusError } from './sdk';
+import { Command } from "commander";
+import { version, bin } from "./pkg.json";
+import { ShieldedAPI, ShieldOptions, StatusError } from "./sdk";
 
 const program = new Command();
 program
 	.name(Object.keys(bin)[0])
-	.description('CLI helper for Shielded.dev API')
-	.option('-e, --endpoint <url>', 'API endpoint', 'https://api.shielded.dev')
-	.option('-c, --color <color>', 'Badge color')
-	.option('-T, --title <title>', 'Badge title')
-	.option('-x, --text <text>', 'Badge text')
-	.option('-k, --key <key>', 'Shield key')
-	.option('-t, --token <token>', 'API token')
+	.description("CLI helper for Shielded.dev API")
+	.option("-e, --endpoint <url>", "API endpoint", "https://api.shielded.dev")
+	.option("-c, --color <color>", "Badge color")
+	.option("-T, --title <title>", "Badge title")
+	.option("-x, --text <text>", "Badge text")
+	.option("-k, --key <key>", "Shield key")
+	.option("-t, --token <token>", "API token")
 	.version(version);
 
 program.parse();
@@ -31,8 +31,8 @@ const options = program.opts<Options>();
 
 if (!options.token) {
 	const tokenEnvironmentVariables = options.key
-		? ['SHIELDED_USER_TOKEN', 'SHIELDED_TOKEN']
-		: ['SHIELDED_TOKEN'];
+		? ["SHIELDED_USER_TOKEN", "SHIELDED_TOKEN"]
+		: ["SHIELDED_TOKEN"];
 
 	for (const variable of tokenEnvironmentVariables) {
 		if (process.env[variable]) {
@@ -43,18 +43,22 @@ if (!options.token) {
 }
 
 if (!options.token) {
-	const tokenVariables = options.key ? 'SHIELDED_USER_TOKEN or SHIELDED_TOKEN' : 'SHIELDED_TOKEN';
-	process.stderr.write(`Missing token. Please set the ${tokenVariables} environment variable or use --token option.\n\n`);
+	const tokenVariables = options.key
+		? "SHIELDED_USER_TOKEN or SHIELDED_TOKEN"
+		: "SHIELDED_TOKEN";
+	process.stderr.write(
+		`Missing token. Please set the ${tokenVariables} environment variable or use --token option.\n\n`,
+	);
 	process.stderr.write(program.helpInformation());
 	process.exit(1);
 }
 
 (async () => {
-	const opts : Partial<ShieldOptions> = {
-		token: options.token
+	const opts: Partial<ShieldOptions> = {
+		token: options.token,
 	};
 
-	if(options.endpoint) {
+	if (options.endpoint) {
 		opts.endpoint = options.endpoint;
 	}
 	const s = new ShieldedAPI(opts);
@@ -68,10 +72,10 @@ if (!options.token) {
 			text: options.text,
 		});
 	} catch (e) {
-		if(e instanceof StatusError) {
+		if (e instanceof StatusError) {
 			process.stderr.write((e as Error).message);
 			process.exit(2);
-		}else{
+		} else {
 			throw e;
 		}
 	}

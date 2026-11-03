@@ -33,6 +33,7 @@ jobs:
           echo "::error::./dist has uncommitted changes after build"
           exit 1
         fi
+    - run: npm run format:check
     - run: npm run lint
     - run: npm test
     - run: npm install -g .
