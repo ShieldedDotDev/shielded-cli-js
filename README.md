@@ -6,6 +6,8 @@ A simple CLI for interacting with the shielded.dev service.
 
 ## Install
 
+Requires Node.js 22.12.0 or later.
+
 ```
 npm install -g shielded-cli
 ```

@@ -15,7 +15,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [22.x]
+        node-version: [22.12.0, 22.x]
 
     steps:
     - uses: actions/checkout@v7
@@ -34,6 +34,7 @@ jobs:
           exit 1
         fi
     - run: npm run lint
-    # - run: npm test
+    - run: npm test
     - run: npm install -g .
-    - run: shielded --key shieldeddotdev-last-update-cli --text "$(date)"
+    - if: matrix.node-version == '22.x'
+      run: shielded --key shieldeddotdev-last-update-cli --text "$(date)"
