@@ -5,11 +5,11 @@ charset = utf-8
 end_of_line = lf
 insert_final_newline = true
 
-[*.{js,ts,mjs,mts}]
+[*.{js,ts,mjs,mts,cjs}]
 indent_style = tab
 indent_size = 4
 
-[*.{cjs,json,yml,yaml}]
+[*.{json,yml,yaml}]
 indent_style = space
 indent_size = 2
 

@@ -6,9 +6,9 @@
   "scripts": {
     "test": "node --test test/*.test.cjs",
     "build": "tsc && chmod +x dist/bin.js",
-    "lint": "oxlint src",
-    "format": "oxfmt --ignore-path .oxfmtignore --write src",
-    "format:check": "oxfmt --ignore-path .oxfmtignore --check src"
+    "lint": "oxlint src test",
+    "format": "oxfmt --ignore-path .oxfmtignore --write src test",
+    "format:check": "oxfmt --ignore-path .oxfmtignore --check src test"
   },
   "author": {
     "name": "Jesse G. Donat",
