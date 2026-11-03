@@ -16,20 +16,20 @@ const sdk_1 = require("./sdk");
 const program = new commander_1.Command();
 program
     .name(Object.keys(pkg_json_1.bin)[0])
-    .description('CLI helper for Shielded.dev API')
-    .option('-e, --endpoint <url>', 'API endpoint', 'https://api.shielded.dev')
-    .option('-c, --color <color>', 'Badge color')
-    .option('-T, --title <title>', 'Badge title')
-    .option('-x, --text <text>', 'Badge text')
-    .option('-k, --key <key>', 'Shield key')
-    .option('-t, --token <token>', 'API token')
+    .description("CLI helper for Shielded.dev API")
+    .option("-e, --endpoint <url>", "API endpoint", "https://api.shielded.dev")
+    .option("-c, --color <color>", "Badge color")
+    .option("-T, --title <title>", "Badge title")
+    .option("-x, --text <text>", "Badge text")
+    .option("-k, --key <key>", "Shield key")
+    .option("-t, --token <token>", "API token")
     .version(pkg_json_1.version);
 program.parse();
 const options = program.opts();
 if (!options.token) {
     const tokenEnvironmentVariables = options.key
-        ? ['SHIELDED_USER_TOKEN', 'SHIELDED_TOKEN']
-        : ['SHIELDED_TOKEN'];
+        ? ["SHIELDED_USER_TOKEN", "SHIELDED_TOKEN"]
+        : ["SHIELDED_TOKEN"];
     for (const variable of tokenEnvironmentVariables) {
         if (process.env[variable]) {
             options.token = process.env[variable];
@@ -38,14 +38,16 @@ if (!options.token) {
     }
 }
 if (!options.token) {
-    const tokenVariables = options.key ? 'SHIELDED_USER_TOKEN or SHIELDED_TOKEN' : 'SHIELDED_TOKEN';
+    const tokenVariables = options.key
+        ? "SHIELDED_USER_TOKEN or SHIELDED_TOKEN"
+        : "SHIELDED_TOKEN";
     process.stderr.write(`Missing token. Please set the ${tokenVariables} environment variable or use --token option.\n\n`);
     process.stderr.write(program.helpInformation());
     process.exit(1);
 }
 (() => __awaiter(void 0, void 0, void 0, function* () {
     const opts = {
-        token: options.token
+        token: options.token,
     };
     if (options.endpoint) {
         opts.endpoint = options.endpoint;
